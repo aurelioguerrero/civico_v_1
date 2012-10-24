@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.reactiva.civico"
+        versionCode="10" 
+        version   = "1.0.0">
+
+    <!-- versionCode is optional and Android only -->
+
+    <name>Civico</name>
+
+    <description>
+        Aplicacion desarrollada por Reactiva Soporte y Desarrollo. 
+    </description>
+
+    <author href="http://www.reactiva.com.co" email="gerencia@reactiva.com.co">
+        Reactiva Soporte y Desarrollo. 
+    </author>
+
+</widget>
