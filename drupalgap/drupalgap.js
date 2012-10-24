@@ -4,7 +4,7 @@ var drupalgap_site_settings;
 var drupalgap_user_roles_and_permissions;
 var drupalgap_content_types_list;
 var drupalgap_content_types_user_permissions;
-var civico_url_drupal = 'http://www.williamcastrillon.com'
+var civico_url_drupal = 'http://www.williamcastrillon.com';
 
 $(document).ready(function() {
 	
@@ -82,7 +82,7 @@ function conectar(){
 		  			},
 		  			"success":function () {
 		  				// Go to the dashboard.
-		  				$.mobile.changePage("dashboard.html", "slideup");
+		  				$.mobile.changePage("drupalgap/pages/user_login.html", "slideup");
 		  			}
 		  		};
 		  		drupalgap_services_resource_system_connect.resource_call(inner_options);
