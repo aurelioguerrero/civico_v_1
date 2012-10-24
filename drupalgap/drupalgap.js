@@ -37,7 +37,7 @@ $(document).ready(function() {
 			},
 			"success":function(){
 				// Go to the dashboard.
-				$.mobile.changePage("drupalgap/pages/user_login.html", { transition: "fade"});
+				$.mobile.changePage("pages/user_login.html", { transition: "fade"});
 			}
 		};
 		drupalgap_services_resource_system_connect.resource_call(options);
@@ -67,7 +67,7 @@ function conectar(){
 	  		},
 	  		"success":function(inner_data){
 	  			// Session id came back, everything is ok...
-		  		alert("Setup Complete!");
+		  		alert("Conexion Exitosa!");
 		  		
 		  		// Make a call to the DrupalGap bundled system connect resource.
 		  		inner_options = {
@@ -82,7 +82,7 @@ function conectar(){
 		  			},
 		  			"success":function () {
 		  				// Go to the dashboard.
-		  				$.mobile.changePage("drupalgap/pages/user_login.html", "slideup");
+		  				$.mobile.changePage("pages/user_login.html", "slideup");
 		  			}
 		  		};
 		  		drupalgap_services_resource_system_connect.resource_call(inner_options);
