@@ -47,7 +47,8 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 	// Fill in placeholders.
 	
 	// Node title.
-	$('#drupalgap_page_node h1').html(drupalgap_page_node.title);
+	//$('#drupalgap_page_node h1').html(drupalgap_page_node.title);
+	$('#titulo_reporte').html(drupalgap_page_node.title);
 	
 	// Node body.
 	var body;
@@ -57,7 +58,8 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 	else if (drupalgap_site_settings.variable.drupal_core == "7") {
 		body = drupalgap_page_node.body.und[0].safe_value;
 	}
-	$('#drupalgap_page_node .content').html(body);
+	//$('#drupalgap_page_node .content').html(body);
+	$('#cuerpo_reporte').html(body);
 	
 	// Set edit button visibility
 	// If user is not user 1 and user is not node author, hide the edit button, otherwise show it.
