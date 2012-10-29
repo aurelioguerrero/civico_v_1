@@ -6,7 +6,7 @@ $('#drupalgap_page_user_login').live('pageshow',function(){
   try {
 	  	// if user is already logged in, send them to the dashboard
 	    if (drupalgap_user.uid != 0) {
-          alert("Already logged in!");
+          //alert("Already logged in!");
           $.mobile.changePage("dashboard.html", "slideup");
           return;
         }
@@ -67,6 +67,9 @@ $('#drupalgap_user_login_submit').live('click',function() {
 	  console.log("drupalgap_user_login_submit - " + error);
 	}
 	
-  return false; // stop the click from executing any further
-  
+  return false; // stop the click from executing any further 
 });
+
+$('#drupalgap_button_user_register').live('click',function() {
+	$.mobile.changePage("user_register.html", "slideup");
+})

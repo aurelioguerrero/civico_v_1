@@ -16,5 +16,7 @@
     <author href="http://www.reactiva.com.co" email="gerencia@reactiva.com.co">
         Reactiva Soporte y Desarrollo. 
     </author>
+	
+	<icon src="icon.png" />
 
 </widget>

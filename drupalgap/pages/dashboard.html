@@ -1,20 +1,23 @@
 <div data-role="page" id="drupalgap_page_dashboard">
-  	<div data-role="header">
-    	<h1></h1>
-  	</div><!-- /header -->
-  	<div data-role="header" data-theme="b" id="drupalgap_page_dashboard_header_user">
-    	<h2></h2>
-  	</div><!-- /header -->
+  	<div data-role="header" data-position="fixed">
+    	<a href="#" id="drupalgap_button_user_logout" data-icon="refresh" class="ui-btn-left">Salir</a>
+		<span style="float:inherit"><img src="../../img/LOGO.png"></span>
+        <a href="user.html" id="drupalgap_button_user_account" data-icon="gear" class="ui-btn-right">Editar</a>
+	</div>      		
+    <div data-role="content" data-theme="b" id="drupalgap_page_dashboard_header_user">
+       	<div id="usuario">           	
+            <img src="../../img/FOTO.png">
+            <h3></h3>            					
+    </div>
+    </div>
   	<div data-role="navbar" id="drupalgap_page_dashboard_navbar_anonymous">
 		<ul>
-			<li><a href="user_login.html" data-role="button" id="drupalgap_button_user_login">Login</a></li>
-			<li><a href="user_register.html" data-role="button" id="drupalgap_button_user_register">Register</a></li>
+			
 		</ul>
 	</div><!-- /navbar -->
 	<div data-role="navbar" id="drupalgap_page_dashboard_navbar_authenticated">
 		<ul>
-			<li><a href="user.html" data-role="button" id="drupalgap_button_user_account">My Account</a></li>
-			<li><a href="#" data-role="button" id="drupalgap_button_user_logout">Logout</a></li>
+			<li>
 		</ul>
 	</div><!-- /navbar -->
 	<div data-role="content">

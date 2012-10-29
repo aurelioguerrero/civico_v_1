@@ -196,7 +196,8 @@ var drupalgap_services = {
 					// Asynchronously...
 					
 					// Show the page loading message.
-					$.mobile.showPageLoadingMsg();
+					//$.mobile.showPageLoadingMsg();
+					$.mobile.showPageLoadingMsg("a", "Cargando...", false);
 					
 					// Setup ajax options.
 					ajax_options = {
@@ -271,6 +272,7 @@ var drupalgap_services = {
 		// Alert the user.
 		if (errorThrown) { alert(errorThrown); }
 		else { alert(textStatus); }
+		$.mobile.hidePageLoadingMsg();
 
 	},
 	

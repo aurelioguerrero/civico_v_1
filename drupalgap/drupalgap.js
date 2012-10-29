@@ -7,15 +7,15 @@ var drupalgap_content_types_user_permissions;
 var civico_url_drupal = 'http://www.williamcastrillon.com';
 
 $(document).ready(function() {
-	
+	//$.mobile.showPageLoadingMsg(); 
 	// Clear all local storage, used for testing.
 	window.localStorage.clear();
 	
 	drupalgap_settings_load();
 	
-	if (!drupalgap_settings.site_path) {
+	if (!drupalgap_settings.site_path) {			
 		// The app doesn't have a default site path, send user to welcome page.
-		conectar();//$.mobile.changePage("drupalgap/pages/welcome.html", { transition: "fade"});
+		conectar();//$.mobile.changePage("drupalgap/pages/welcome.html", { transition: "fade"});		
 	}
 	else {
 		
@@ -37,16 +37,16 @@ $(document).ready(function() {
 			},
 			"success":function(){
 				// Go to the dashboard.
-				$.mobile.changePage("pages/user_login.html", { transition: "fade"});
+				$.mobile.changePage("drupalgap/pages/user_login.html", { transition: "fade"});
 			}
 		};
 		drupalgap_services_resource_system_connect.resource_call(options);
 	}
-	
+	//$.mobile.hidePageLoadingMsg();
 });
 
-function conectar(){
-	try {  	
+function conectar(){	
+	try {		
 	  	// update settings with new site url path
 	  	settings = drupalgap_settings_load();
 	  	settings.site_path = civico_url_drupal;
@@ -62,12 +62,12 @@ function conectar(){
 			  		alert(errorThrown);
 			  	}
 			  	else {
-			  		alert("Error connecting. Please check that the URL is typed correctly, with no trailing slashes.");
+			  		alert("Error al conectar con el servidor.");
 			  	}
 	  		},
 	  		"success":function(inner_data){
 	  			// Session id came back, everything is ok...
-		  		alert("Conexion Exitosa!");
+		  		//alert("Conexion Exitosa!");
 		  		
 		  		// Make a call to the DrupalGap bundled system connect resource.
 		  		inner_options = {
@@ -77,12 +77,12 @@ function conectar(){
 					  		alert(errorThrown);
 					  	}
 					  	else {
-					  		alert("Error connecting. Please check that the URL is typed correctly, with no trailing slashes.");
+					  		alert("Error al conectar con el servidor.");
 					  	}
 		  			},
 		  			"success":function () {
 		  				// Go to the dashboard.
-		  				$.mobile.changePage("pages/user_login.html", "slideup");
+		  				$.mobile.changePage("drupalgap/pages/user_login.html", "slideup");
 		  			}
 		  		};
 		  		drupalgap_services_resource_system_connect.resource_call(inner_options);
@@ -93,7 +93,7 @@ function conectar(){
 	catch (error) {
 		console.log("drupalgap_page_setup_connect");
 		console.log(error);
-	}
+	}	
 	return false;
 }
 
