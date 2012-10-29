@@ -142,7 +142,7 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 				alert("drupalgap_page_node_edit_delete - failed to load node (" + drupalgap_page_node_edit_nid + ")");
 			},
 			"success":function(node) {
-				if (confirm("Are you sure you want to delete \"" + node.title + "\"? This cannot be undone.")) {
+				if (confirm("Seguro que quiere eliminar \"" + node.title + "\"?")) {
 					node_delete_options = {
 						"nid":node.nid,
 						"error":function(jqXHR, textStatus, errorThrown) {
