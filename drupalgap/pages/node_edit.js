@@ -171,7 +171,9 @@ $('#btn_tomar_foto').live('click',function(){
 
 function mostrarFoto(dato)
 {
-	alert(dato);	
+	var smallImage = document.getElementById('smallImage');
+	smallImage.style.display = 'block';
+	smallImage.src = "data:image/jpeg;base64," + dato;	
 }
 
 function onfail(data)
