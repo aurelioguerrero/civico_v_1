@@ -173,3 +173,8 @@ function mostrarFoto(dato)
 {
 	alert(dato);	
 }
+
+function onfail(data)
+{
+	alert(data);	
+}
