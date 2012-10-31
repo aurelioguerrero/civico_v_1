@@ -166,16 +166,16 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 });
 
 $('#btn_tomar_foto').live('click',function(){
-	//var source = navigator.camera.destinationType.DATA_URL;
-	navigator.camera.getPicture(mostrarFoto, onFail, { quality : 50/*, destinationType : source*/ });
+	var source = navigator.camera.destinationType.DATA_URL;
+	navigator.camera.getPicture(mostrarFoto, onFail, { quality : 50, destinationType : source });
 });
 
 function mostrarFoto(dato)
 {
-	alert(dato);
-	/*var smallImage = document.getElementById('smallImage');
+	//alert(dato);
+	var smallImage = document.getElementById('smallImage');
 	smallImage.style.display = 'block';
-	smallImage.src = "data:image/jpeg;base64," + dato;	*/
+	smallImage.src = "data:image/jpeg;base64," + dato;	
 }
 
 function onFail(data)
