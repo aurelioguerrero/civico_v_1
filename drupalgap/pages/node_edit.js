@@ -166,7 +166,7 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 });
 
 $('#btn_tomar_foto').live('click',function(){
-	navigator.camera.getPicture(mostrarFoto, onfail,  { quality: 50 });
+	navigator.camera.getPicture(mostrarFoto, onfail,  { quality: 50, destinationType: destinationType.DATA_URL });
 });
 
 function mostrarFoto(dato)
