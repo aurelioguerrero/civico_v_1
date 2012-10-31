@@ -166,7 +166,7 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 });
 
 $('#btn_tomar_foto').live('click',function(){
-	navigator.camera.getPicture(mostrarFoto, onfail,  { quality: 50, destinationType: destinationType.DATA_URL });
+	navigator.camera.getPicture(mostrarFoto, onFail, { quality: 50, destinationType: destinationType.DATA_URL });
 });
 
 function mostrarFoto(dato)
@@ -176,7 +176,7 @@ function mostrarFoto(dato)
 	smallImage.src = "data:image/jpeg;base64," + dato;	
 }
 
-function onfail(data)
+function onFail(data)
 {
 	alert(data);	
 }
