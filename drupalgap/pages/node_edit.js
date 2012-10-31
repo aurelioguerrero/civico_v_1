@@ -164,3 +164,12 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 	}
 	return false;
 });
+
+$('#btn_tomar_foto').live('click',function(){
+	navigator.camera.getPicture(mostrarFoto, onfail,  { quality: 50 });
+});
+
+function mostrarFoto(dato)
+{
+	alert(dato);	
+}
