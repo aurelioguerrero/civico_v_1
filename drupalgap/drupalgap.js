@@ -5,6 +5,17 @@ var drupalgap_user_roles_and_permissions;
 var drupalgap_content_types_list;
 var drupalgap_content_types_user_permissions;
 var civico_url_drupal = 'http://www.williamcastrillon.com';
+var pictureSource;   // picture source
+var destinationType; // sets the format of returned value 
+
+document.addEventListener("deviceready",onDeviceReady,false);
+
+    // Cordova is ready to be used!
+    //
+function onDeviceReady() {
+    pictureSource=navigator.camera.PictureSourceType;
+    destinationType=navigator.camera.DestinationType;
+}
 
 $(document).ready(function() {
 	//$.mobile.showPageLoadingMsg(); 
