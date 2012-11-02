@@ -182,3 +182,25 @@ function onFail(data)
 {
 	alert(data);	
 }
+
+$('#btn_buscar_coordenadas').live('click',function(){
+	navigator.geolocation.getCurrentPosition(registrarCoordenadas, errorCoordenadas);
+});
+
+function registrarCoordenadas(position)
+{
+	var cadena = position.coords.latitude+'/'+
+				 position.coords.longitude+'/'+
+				 position.coords.altitude+'/'+
+				 position.coords.accuracy+'/'+
+				 position.coords.altitudeAccuracy+'/'+
+				 position.coords.heading+'/'+
+				 position.coords.speed;
+	$('#civico_coordenadas').val(cadena);
+}
+
+function errorCoordenadas(error)
+{
+	alert('codigo: '    + error.code    + '\n' +
+                'mensaje: ' + error.message + '\n');
+}
