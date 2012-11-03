@@ -73,6 +73,7 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 			}
 			else
 			{
+				$.mobile.showPageLoadingMsg("a", "Cargando imagen...", false);
 				options = {
 					"file":{
 						"file":nodeImageBase64,
@@ -86,13 +87,14 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 					}
 				}
 				drupalgap_services_node_image.resource_call(options);
+				$.mobile.hidePageLoadingMsg();
 			}
 		
 	  		options = {
 	  			"node":{
 	  				"type":drupalgap_page_node_edit_type,
 	  				"title":title,
-	  				"body":body,
+	  				"body":body+imgfid,
 					"filefid":imgfid,
 	  			},
 	  			"error":function(jqXHR, textStatus, errorThrown) {
