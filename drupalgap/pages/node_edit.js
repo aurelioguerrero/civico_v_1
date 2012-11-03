@@ -57,6 +57,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 });
 
 $('#drupalgap_page_node_edit_submit').live('click',function(){
+	var imgfid="";
 	try {
 		
 		// Grab input and validate.
@@ -66,11 +67,33 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 	  	if (!body) { alert('Please enter some body content.'); return false; }
 	  
 	  	if (!drupalgap_page_node_edit_nid) { // new nodes...
+			if(!nodeImageBase64)
+			{
+				
+			}
+			else
+			{
+				options = {
+					"file":{
+						"file":nodeImageBase64,
+						"filename":"imagendeprueba.jpg",
+					},
+					"error":function(jqXHR, textStatus, errorThrown){
+						alert("Error al intentar cargar la imagen");
+					},
+					"success":function(data){
+						imgfid = data.fid;
+					}
+				}
+				drupalgap_services_node_image.resource_call(options);
+			}
+		
 	  		options = {
 	  			"node":{
 	  				"type":drupalgap_page_node_edit_type,
 	  				"title":title,
 	  				"body":body,
+					"filefid":imgfid,
 	  			},
 	  			"error":function(jqXHR, textStatus, errorThrown) {
 	  				alert("drupalgap_page_node_edit_submit - Failed to create " + drupalgap_page_node_edit_type + ", review the debug console log for more information.");
@@ -173,9 +196,10 @@ $('#btn_tomar_foto').live('click',function(){
 function mostrarFoto(dato)
 {
 	//alert(dato);
+	nodeImageBase64 = dato;
 	var smallImage = document.getElementById('smallImage');
 	smallImage.style.display = 'block';
-	smallImage.src = "data:image/jpeg;base64," + dato;	
+	smallImage.src = "data:image/jpeg;base64," + nodeImageBase64;	
 }
 
 function onFail(data)

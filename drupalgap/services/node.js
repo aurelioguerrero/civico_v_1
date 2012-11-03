@@ -2,6 +2,57 @@
 var drupalgap_services_node_update_result;
 var drupalgap_services_node_delete_result;
 
+var drupalgap_services_node_image = {
+	"resource_path":"file.json",
+	"resource_type":"post",
+	"resource_call":function (caller_options) {
+		try {
+			
+			// Pull the node out of the caller options.
+			file = caller_options.file;
+						
+			data = "file[file]=" + encodeURIComponent(file.file);
+			data += "&file[filename]=" + encodeURIComponent(file.filename);
+			
+			// Build options for service call.
+			options = {
+				"resource_path":this.resource_path,
+				"type":this.resource_type,
+				"data":data,
+				"async":true,
+				"success":this.success,
+				"error":this.error
+			};
+			
+			// Attach error/success hooks if provided.
+			if (caller_options.error) {
+				options.hook_error = caller_options.error;
+			}
+			if (caller_options.success) {
+				options.hook_success = caller_options.success;
+			}
+			
+			// Make the service call to the node create resource.
+			drupalgap_services.resource_call(options);
+		}
+		catch (error) {
+			console.log("drupalgap_services_node_image");
+			console.log(error);
+		}
+	},
+	"error":function (jqXHR, textStatus, errorThrown) {
+		if (errorThrown) {
+			alert(errorThrown);
+		}
+		else {
+			alert(textStatus);
+		}
+	},
+	
+	"success":function (data) {
+	},
+}; 
+
 var drupalgap_services_node_create = {
 	"resource_path":"node.json",
 	"resource_type":"post",
