@@ -19,7 +19,7 @@ var drupalgap_services_node_image = {
 				"resource_path":this.resource_path,
 				"type":this.resource_type,
 				"data":data,
-				"async":true,
+				"async":false,
 				"success":this.success,
 				"error":this.error
 			};
