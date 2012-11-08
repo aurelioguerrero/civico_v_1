@@ -57,7 +57,6 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 });
 
 $('#drupalgap_page_node_edit_submit').live('click',function(){
-	//var imgfid="";
 	try {
 		
 		// Grab input and validate.
@@ -73,7 +72,6 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 			}
 			else
 			{
-				$.mobile.showPageLoadingMsg("a", "Cargando imagen...", false);
 				options = {
 					"file":{
 						"file":nodeImageBase64,
@@ -85,7 +83,6 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 					"success": crearNodo					
 				}
 				drupalgap_services_node_image.resource_call(options);
-				$.mobile.hidePageLoadingMsg();
 			}
 		
 	  		/*options = {
