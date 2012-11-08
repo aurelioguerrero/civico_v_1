@@ -14,11 +14,14 @@ var drupalgap_services_node_image = {
 			data = "file[file]=" + file.file;
 			data += "&file[filename]=" + encodeURIComponent(file.filename);
 			
+			uri = "public://field/image/"+ encodeURIComponent(file.filename);
+			
 			// Build options for service call.
 			options = {
 				"resource_path":this.resource_path,
 				"type":this.resource_type,
 				"data":data,
+				"uri": uri,
 				"async":false,
 				"success":this.success,
 				"error":this.error
