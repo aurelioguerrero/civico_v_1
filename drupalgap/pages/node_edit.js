@@ -141,7 +141,7 @@ function crearNodo(node)
 {
 	var title = $('#drupalgap_page_node_edit_title').val();
 	var body = $('#drupalgap_page_node_edit_body').val();
-	var imgfid = data.fid;
+	var imgfid = node.fid;
 	
 	options = {
 	  			"node":{
