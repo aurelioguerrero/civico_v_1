@@ -71,9 +71,11 @@ var drupalgap_services_node_create = {
 				body = "node[language]=und&node[body][und][0][value]=" + encodeURIComponent(node.body);
 			}
 			
+			var fid = "node[field_image][und][0][fid]=" + node.filefid;
+			
 			// Build service call data string.
 			data = "node[type]=" + encodeURIComponent(node.type);
-			data += "&node[title]=" + encodeURIComponent(node.title) + "&" + body;
+			data += "&node[title]=" + encodeURIComponent(node.title) + "&" + body + "&" + fid;
 			
 			// Build options for service call.
 			options = {
