@@ -9,7 +9,7 @@ var drupalgap_services_node_image = {
 		try {
 			
 			// Pull the node out of the caller options.
-			file = caller_options.file;
+			var file = caller_options.file;
 						
 			data = "file[file]=" + encodeURIComponent(file.file);
 			data += "&file[filename]=" + encodeURIComponent(file.filename);
