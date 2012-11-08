@@ -11,7 +11,7 @@ var drupalgap_services_node_image = {
 			// Pull the node out of the caller options.
 			var file = caller_options.file;
 						
-			data = "file[file]=" + encodeURIComponent(file.file);
+			var data = "file[file]=" + encodeURIComponent(file.file);
 			data += "&file[filename]=" + encodeURIComponent(file.filename);
 			
 			// Build options for service call.
