@@ -57,7 +57,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 });
 
 $('#drupalgap_page_node_edit_submit').live('click',function(){
-	var imgfid="";
+	//var imgfid="";
 	try {
 		
 		// Grab input and validate.
@@ -82,15 +82,13 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 					"error":function(jqXHR, textStatus, errorThrown){
 						alert("Error al intentar cargar la imagen");
 					},
-					"success":function(data){
-						imgfid = data.fid;
-					}
+					"success": crearNodo					
 				}
 				drupalgap_services_node_image.resource_call(options);
 				$.mobile.hidePageLoadingMsg();
 			}
 		
-	  		options = {
+	  		/*options = {
 	  			"node":{
 	  				"type":drupalgap_page_node_edit_type,
 	  				"title":title,
@@ -106,7 +104,7 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 				  	$.mobile.changePage("node.html");
 		  		},
 	  		};
-		  	drupalgap_services_node_create.resource_call(options);
+		  	drupalgap_services_node_create.resource_call(options);*/
 	  	}
 	  	else { // existing nodes...
 		  	// Retrieve the node, update the values.
@@ -141,6 +139,31 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 	}
 	return false;
 });
+
+function crearNodo(node)
+{
+	var title = $('#drupalgap_page_node_edit_title').val();
+	var body = $('#drupalgap_page_node_edit_body').val();
+	var imgfid = data.fid;
+	
+	options = {
+	  			"node":{
+	  				"type":drupalgap_page_node_edit_type,
+	  				"title":title,
+	  				"body":body+imgfid,
+					"filefid":imgfid,
+	  			},
+	  			"error":function(jqXHR, textStatus, errorThrown) {
+	  				alert("drupalgap_page_node_edit_submit - Failed to create " + drupalgap_page_node_edit_type + ", review the debug console log for more information.");
+		  		},
+		  		"success":function(node) {
+		  			// Created node successfully, view the node.
+		  			drupalgap_page_node_nid = node.nid;
+				  	$.mobile.changePage("node.html");
+		  		},
+	  		};
+		  	drupalgap_services_node_create.resource_call(options);
+}
 
 // cancel button clicked...
 $('#drupalgap_page_node_edit_cancel').live('click',function(){
