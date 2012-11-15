@@ -157,6 +157,7 @@ function crearNodo(node)
 		  		"success":function(node) {
 		  			// Created node successfully, view the node.
 		  			drupalgap_page_node_nid = node.nid;
+					nodeImageBase64 = NULL;
 				  	$.mobile.changePage("node.html");
 		  		},
 	  		};
