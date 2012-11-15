@@ -76,7 +76,7 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 				options = {
 					"file":{
 						"file":nodeImageBase64,
-						"filename":"imagendeprueba.jpg",
+						"filename":"imagendeprueba.jpg"+(Math.floor((Math.random()*10)+1)*Math.floor((Math.random()*10)+1)),
 					},
 					"error":function(jqXHR, textStatus, errorThrown){
 						alert("Error al intentar cargar la imagen");
@@ -157,7 +157,6 @@ function crearNodo(node)
 		  		"success":function(node) {
 		  			// Created node successfully, view the node.
 		  			drupalgap_page_node_nid = node.nid;
-					nodeImageBase64 = null;
 				  	$.mobile.changePage("node.html");
 		  		},
 	  		};
