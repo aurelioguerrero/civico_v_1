@@ -1,5 +1,6 @@
 var drupalgap_page_node_edit_nid;
 var drupalgap_page_node_edit_type;
+var nodeImageBase64;
 $('#drupalgap_page_node_edit').live('pageshow',function(){
 	try {
 		
