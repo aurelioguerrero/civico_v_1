@@ -15,6 +15,7 @@ document.addEventListener("deviceready",onDeviceReady,false);
 function onDeviceReady() {
     pictureSource=navigator.camera.PictureSourceType;
     destinationType=navigator.camera.DestinationType;
+	$.ajaxSetup({ cache:false });
 }
 
 $(document).ready(function() {
