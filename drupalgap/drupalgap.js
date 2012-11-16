@@ -8,6 +8,9 @@ var civico_url_drupal = 'http://www.williamcastrillon.com';
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
 
+Ext.Loader.setConfig({disableCaching:false});
+Ext.Ajax.setDisableCaching(false);
+
 document.addEventListener("deviceready",onDeviceReady,false);
 
     // Cordova is ready to be used!
