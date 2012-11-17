@@ -207,8 +207,7 @@ var drupalgap_services = {
 				      dataType: options.dataType,
 				      async: options.async,
 				      error: options.error,
-				      success: options.success,
-					  cache: false
+				      success: options.success
 				    };
 					
 					// If error/success call back hooks were provided, chain them
