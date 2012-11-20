@@ -141,6 +141,6 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 }
 
 function drupalgap_page_img_success(drupalgap_img) {
-		var html = '<img style="width:220px;height:150px;position:relative;margin-left:auto;margin-right:auto" src="'+drupalgap_img.uri_full+'" alt="'+drupalgap_img.uri_full+'" align="middle" />';
+		var html = '<img style="width:220px;height:150px;position:relative;margin-left:auto;margin-right:auto;" src="'+drupalgap_img.uri_full+'" alt="'+drupalgap_img.uri_full+'" align="middle" />';
 		$('#foto_reporte').html(html);
 }

@@ -43,7 +43,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 						body = node.body;
 					}
 					else if (drupalgap_site_settings.variable.drupal_core == "7") {
-						body = node.body.und[0].safe_value;
+						body = node.body.und[0].value;
 					}
 					$('#drupalgap_page_node_edit_body').val(body);
 				},
@@ -214,7 +214,7 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 });
 
 $('#btn_tomar_foto').live('click',function(){
-	navigator.camera.getPicture( mostrarFoto, onFail, { quality: 50,
+	navigator.camera.getPicture( mostrarFoto, onFail, { quality: 20,
         destinationType: destinationType.DATA_URL });
 });
 
