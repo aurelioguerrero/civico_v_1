@@ -142,5 +142,5 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 
 function drupalgap_page_img_success(drupalgap_img) {
 		var html = '<img style="display:none;width:150px;height:150px;" src="'+drupalgap_img.uri_full+'" />';
-		$('#titulo_reporte').html(html);
+		$('#foto_reporte').html(html);
 }
