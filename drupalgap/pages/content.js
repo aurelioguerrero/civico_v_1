@@ -21,7 +21,7 @@ $('#drupalgap_page_content').live('pageshow',function(){
 		
 		// Build content retrieve resource call options.
 		views_options = {
-			"path":"views_datasource/drupalgap_content",
+			"path":"views_datasource/drupalgap_content/"+drupalgap_user.uid,
 			"error":function(jqXHR, textStatus, errorThrown) {
 				if (errorThrown) {
 					alert(errorThrown);
