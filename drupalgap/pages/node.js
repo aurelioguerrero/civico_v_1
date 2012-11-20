@@ -56,7 +56,7 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 		body = drupalgap_page_node.body;
 	}
 	else if (drupalgap_site_settings.variable.drupal_core == "7") {
-		body = drupalgap_page_node.body.und[0].safe_value;
+		body = drupalgap_page_node.body.und[0].value;
 	}
 	//$('#drupalgap_page_node .content').html(body);
 	$('#cuerpo_reporte').html(body);
@@ -117,4 +117,30 @@ function drupalgap_page_node_success(drupalgap_page_node) {
 	if (!drupalgap_services_user_access({"permission":"post comments"})) {
 		$('#drupalgap_page_node_button_comment_edit').hide();
 	}
+	
+	if(drupalgap_page_node.field_image.und[0].fid)
+	{
+		try {			
+			options = {
+				"fid":drupalgap_page_node.field_image.und[0].fid,
+				"error":function(jqXHR, textStatus, errorThrown) {
+					alert(drupalgap_page_node.errorThrown);
+					alert("drupalgap_page_node - falla al cargar la imagen  (" + drupalgap_page_node.field_image.und[0].fid + ")");
+				},
+				"success":drupalgap_page_img_success,
+			};
+			
+			// Load node via services call.
+			drupalgap_services_img_retrieve.resource_call(options);
+		}
+		catch (error) {
+			console.log("drupalgap_page_node");
+			console.log(error);
+		}
+	}
+}
+
+function drupalgap_page_img_success(drupalgap_img) {
+		var html = '<img style="display:none;width:150px;height:150px;" src="'+drupalgap_img.uri_full+'" />';
+		$('#titulo_reporte').html(html);
 }

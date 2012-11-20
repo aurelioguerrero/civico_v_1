@@ -116,6 +116,90 @@ var drupalgap_services_node_create = {
 	},
 }; 
 
+var drupalgap_services_img_retrieve = {
+	
+	"resource_path":function(options) {
+		// TODO - Need nid validation here.
+		return "file/" + encodeURIComponent(encodeURIComponent(options.fid)) + ".json";
+	},
+	"resource_type":"get",
+	"resource_result":"",
+	
+	/** 
+	 * Retrieves a Drupal node.
+	 * 
+	 * caller_options
+	 * 		the node id you want to load
+	 */
+	"resource_call":function(caller_options) {
+		try {
+		
+			this.resource_result = null;
+			node = null;
+			
+			// Validate incoming parameters.
+			// TODO - Do a better job validating.
+			valid = true;
+			if (!caller_options.fid) {
+				alert("drupalgap_services_img_retrieve - no se porporciono fid");
+				valid = false;
+			}
+			
+			if (valid) {
+				// Build the options for the service call.
+				options = {
+					"resource_path":this.resource_path(caller_options),
+					"type":this.resource_type,
+					"async":true,
+					"success":this.success,
+					"error":this.error
+				};
+				
+				// Attach error/success hooks if provided.
+				if (caller_options.error) {
+					options.hook_error = caller_options.error;
+				}
+				if (caller_options.success) {
+					options.hook_success = caller_options.success;
+				}
+				
+				// Retrieve the node.
+				drupalgap_services.resource_call(options);
+			}
+		}
+		catch (error) {
+			console.log("drupalgap_services_node_retrieve");
+			console.log(error);
+		}
+	},
+	
+	"error":function(jqXHR, textStatus, errorThrown) {
+		if (errorThrown) {
+			alert(errorThrown);
+		}
+		else {
+			alert(textStatus);
+		}
+	},
+	
+	"success":function(data) {
+	},
+	
+	/**
+	 * Removes a node from local storage.
+	 * 
+	 * options.nid
+	 * 		The node id of the node to remove.
+	 */
+	"local_storage_remove":function(options) {
+		type = this.resource_type;
+		resource_path = this.resource_path(options);
+		key = drupalgap_services_default_local_storage_key(type,resource_path);
+		window.localStorage.removeItem(key);
+		console.log("Removed from local storage (" + key + ")");
+	},
+};
+
 var drupalgap_services_node_retrieve = {
 	
 	"resource_path":function(options) {

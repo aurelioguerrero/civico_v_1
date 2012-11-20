@@ -37,7 +37,7 @@ $('#drupalgap_page_content').live('pageshow',function(){
 				// empty message.
 				if ($(content.nodes).length > 0) {
 					$.each(content.nodes,function(index,obj){
-						html = "<a href='node.html' id='" + obj.node.nid + "'>" + obj.node.title + "</a>";
+						html = "<a href='node.html' id='" + obj.node.nid + "' data-transition='flip'>" + obj.node.title + "</a>";
 						$("#drupalgap_page_content_list").append($("<li></li>",{"html":html}));
 					});
 				}
