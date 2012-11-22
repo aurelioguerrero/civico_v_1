@@ -71,7 +71,7 @@ $('#drupalgap_page_node_edit_submit').live('click',function(){
 	  	if (!drupalgap_page_node_edit_nid) { // new nodes...
 			if(!nodeImageBase64)
 			{
-				
+				crearNodo({fid : ""})
 			}
 			else
 			{
@@ -145,6 +145,7 @@ function crearNodo(node)
 	var title = $('#drupalgap_page_node_edit_title').val();
 	var body = $('#drupalgap_page_node_edit_body').val();
 	var imgfid = node.fid;
+	var valgps = $('#civico_coordenadas').val();
 	
 	options = {
 	  			"node":{
@@ -152,6 +153,7 @@ function crearNodo(node)
 	  				"title":title,
 	  				"body":body+imgfid,
 					"filefid":imgfid,
+					"gps" : valgps,
 	  			},
 	  			"error":function(jqXHR, textStatus, errorThrown) {
 	  				alert("drupalgap_page_node_edit_submit - Failed to create " + drupalgap_page_node_edit_type + ", review the debug console log for more information.");

@@ -72,10 +72,11 @@ var drupalgap_services_node_create = {
 			}
 			
 			var fid = "node[field_image][und][0][fid]=" + node.filefid;
+			var gps = "node[field_gps]=" + encodeURIComponent(node.gps);
 			
 			// Build service call data string.
 			data = "node[type]=" + encodeURIComponent(node.type);
-			data += "&node[title]=" + encodeURIComponent(node.title) + "&" + body + "&" + fid;
+			data += "&node[title]=" + encodeURIComponent(node.title) + "&" + body + "&" + fid + "&" + gps;
 			
 			// Build options for service call.
 			options = {
