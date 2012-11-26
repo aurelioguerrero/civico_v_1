@@ -7,6 +7,7 @@ var drupalgap_content_types_user_permissions;
 var civico_url_drupal = 'http://www.williamcastrillon.com';
 var pictureSource;   // picture source
 var destinationType; // sets the format of returned value 
+var urlImagenReporte;
 
 document.addEventListener("deviceready",onDeviceReady,false);
 

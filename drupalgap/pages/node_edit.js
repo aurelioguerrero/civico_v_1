@@ -46,6 +46,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 						body = node.body.und[0].value;
 					}
 					$('#drupalgap_page_node_edit_body').val(body);
+					$('#smallImage').attr('src',urlImagenReporte);
 				},
 			}
 			
