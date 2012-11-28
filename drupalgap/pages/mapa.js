@@ -15,12 +15,13 @@ $('#civico_mapa').live('pageshow',function(){
 
 function cargarMapa(position)
 {
-	var Url = civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2;
+	var html = '<iframe id="civicoFrameMapa" width="100%" height="90%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'+civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2+'"></iframe>';
+	//var Url = civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2;
 	//$('#civicoFrameMapa').attr('src',Url);
 	var frame = document.getElementById('civicoFrameMapa');
-	frame.src = Url;
+	frame.html = html;
 	$.mobile.hidePageLoadingMsg();
-	alert(Url);
+	//alert(Url);
 }
 
 function errorCoordenadas(error)
