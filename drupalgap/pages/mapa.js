@@ -16,6 +16,14 @@ $('#civico_mapa').live('pageshow',function(){
 function cargarMapa(position)
 {
 	var Url = civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2;
-	$('#civicoFrameMapa').attr('src',Url);
+	//$('#civicoFrameMapa').attr('src',Url);
+	var frame = document.getElementById('civicoFrameMapa');
+	frame.src = Url;
 	$.mobile.hidePageLoadingMsg();
+}
+
+function errorCoordenadas(error)
+{
+	alert('Error al cargar las coordenadas, codigo: '    + error.code    + '\n' +
+                'mensaje: ' + error.message + '\n');
 }
