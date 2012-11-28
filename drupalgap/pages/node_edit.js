@@ -3,8 +3,8 @@ var drupalgap_page_node_edit_type;
 var nodeImageBase64;
 $('#drupalgap_page_node_edit').live('pageshow',function(){
 	try {
-		$.ajaxSetup({ cache:false });
-		window.localStorage.clear();
+		//$.ajaxSetup({ cache:false });
+		//window.localStorage.clear();
 		
 		// Clear form fields.
 		$('#drupalgap_page_node_edit_title').val("");
