@@ -2,7 +2,7 @@
 var civicoUrlMap1 = 'https://maps.google.com/maps/ms?msa=0&amp;msid=206997018444257962319.0004cf680c791de2df2c7&amp;hl=es&amp;ie=UTF8&amp;t=m&amp;ll=';
 var civicoUrlMap2 = '&amp;spn=0,0&amp;output=embed';
 
-$('#drupalgap_page_node_edit').live('pageshow',function(){
+$('#civico_mapa').live('pageshow',function(){
 	try {
 		$.mobile.showPageLoadingMsg("a", "Cargando coordenadas...", false);
 		navigator.geolocation.getCurrentPosition(cargarMapa, errorCoordenadas);
