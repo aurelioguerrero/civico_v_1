@@ -152,7 +152,7 @@ function crearNodo(node)
 	  			"node":{
 	  				"type":drupalgap_page_node_edit_type,
 	  				"title":title,
-	  				"body":body+imgfid,
+	  				"body":body,
 					"filefid":imgfid,
 					"gps" : valgps,
 	  			},

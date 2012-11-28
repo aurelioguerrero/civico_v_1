@@ -391,6 +391,9 @@ function drupalgap_services_get_load_from_local_storage_default(options) {
 						options.load_from_local_storage = "0";
 				}
 			}
+			else if (options.resource_path.indexOf("file/") != -1) {
+						options.load_from_local_storage = "0";
+			}
 			break;
 		case "post":
 			// User login/logout/register resources.
@@ -466,6 +469,9 @@ function drupalgap_services_get_save_to_local_storage_default(options) {
 			}
 			// Comment create resource.
 			else if (options.resource_path.indexOf("comment.json") != -1) {
+				options.save_to_local_storage = "0";
+			}
+			else if (options.resource_path.indexOf("file.json") != -1) {
 				options.save_to_local_storage = "0";
 			}
 			break;
