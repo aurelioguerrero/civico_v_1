@@ -20,6 +20,7 @@ function cargarMapa(position)
 	var frame = document.getElementById('civicoFrameMapa');
 	frame.src = Url;
 	$.mobile.hidePageLoadingMsg();
+	alert(Url);
 }
 
 function errorCoordenadas(error)
