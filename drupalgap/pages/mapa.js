@@ -16,7 +16,7 @@ $('#civico_mapa').live('pageshow',function(){
 function cargarMapa(position)
 {
 	try {
-		var html = '<iframe id="civicoFrameMapa" width="100%" height="90%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'+civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2+'"></iframe>';
+		var html = '<iframe id="civicoFrameMapa" width="100%" height="90%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="'+civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2+'">Si aparece este texto, tu navegador no soporta iframes</iframe>';
 		//var Url = civicoUrlMap1 + position.coords.latitude + ',' + position.coords.longitude + civicoUrlMap2;
 		//$('#civicoFrameMapa').attr('src',Url);
 		var frame = document.getElementById('civicoFrameMapa');
