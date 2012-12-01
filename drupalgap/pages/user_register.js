@@ -109,8 +109,7 @@ $('#drupalgap_user_register_submit').live('click',function() {
 	  
 	  // Make the service call.
 	  //drupalgap_services_user_register.resource_call(options);
-	  //drupalgap_services_drupalgap_user_register.resource_call(options);
-	  alert('Usuario Registrado!');
+	  drupalgap_services_drupalgap_user_register.resource_call(options);
 	}
 	catch (error) {
 	  console.log("drupalgap_user_register_submit - " + error);

@@ -282,6 +282,10 @@ var drupalgap_services_drupalgap_user_register = {
 				alert("drupalgap_services_drupalgap_user_register - name empty");
 				return false;
 			}
+			if (!caller_options.cuenta) {
+				alert("drupalgap_services_drupalgap_user_register - cuenta empty");
+				return false;
+			}
 			if (!caller_options.mail) {
 				alert("drupalgap_services_drupalgap_user_register - mail empty");
 				return false;
@@ -294,6 +298,7 @@ var drupalgap_services_drupalgap_user_register = {
 			// Build the options for the service call.
 			data = 'name=' + encodeURIComponent(caller_options.name);
 			data += '&mail=' + encodeURIComponent(caller_options.mail);
+			data += '&field_cuenta=' + encodeURIComponent(caller_options.cuenta);
 			data += '&pass=' + encodeURIComponent(caller_options.pass);
 			//, "save_to_local_storage":"0"
 			options = {
