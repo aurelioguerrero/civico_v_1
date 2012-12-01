@@ -5,7 +5,7 @@
 $('#drupalgap_page_user_register').live('pageshow',function(){
   try {
 	    if (drupalgap_user.uid != 0) {
-          alert("Already logged in!");
+          alert("Ya ingresaste con tu usuario!");
           $.mobile.changePage("dashboard.html", "slideup");
         }
   }
@@ -24,24 +24,30 @@ $('#drupalgap_user_register_submit').live('click',function() {
 	  
 	  // Grab name and validate it.
 	  var name = $('#drupalgap_user_register_name').val();
-	  if (!name) { alert('Please enter your user name.'); return false; }
+	  if (!name) { alert('Por favor ingrese su nombre de usuario.'); return false; }
+	  
+	  var cuenta = $('#drupalgap_user_register_cuenta_siec').val();
+	  if (!cuenta) { alert('Por favor ingrese su cuenta CHEC.'); return false; }
+	  if (cuenta.toString().length != 9){ alert('El número de cuenta CHEC no es válido!'); return false;}
+	  if (digitos_chequeo((cuenta.toString()).substring(0,6)) != (cuenta.toString()).substring(6,9)){ alert('El número de cuenta CHEC no es válido!'); return false;}	  
 	  
 	  // Grab mail and validate it.
 	  var mail = $('#drupalgap_user_register_mail').val();
-	  if (!mail) { alert('Please enter your e-mail address.'); return false; }
+	  if (!mail) { alert('Por favor ingrese su dirección de correo electrónico.'); return false; }
 	  
 	  // Grab passwords, compare and validate. 
 	  var pass = $('#drupalgap_user_register_pass').val();
-	  if (!pass) { alert('Please enter your password.'); return false; }
+	  if (!pass) { alert('Por favor ingrese su contraseña.'); return false; }
 	  var pass2 = $('#drupalgap_user_register_confirm_pass').val();
-	  if (!pass2) { alert('Please confirm your password.'); return false; }
-	  if (pass != pass2) { alert("Passwords do not match."); return false; }
+	  if (!pass2) { alert('Por favor confirme su contraseña.'); return false; }
+	  if (pass != pass2) { alert("Las contraseñas no coinciden."); return false; }
 	  
 	  // Build service call options.
 	  //user_registration = drupalgap_services_user_register(name,mail,pass);
 	  options = {
 		"name":name,
 		"mail":mail,
+		"cuenta":cuenta,
 		"pass":pass,
 		
 		"error":function(jqXHR, textStatus, errorThrown) {
@@ -68,14 +74,14 @@ $('#drupalgap_user_register_submit').live('click',function() {
 			  switch (drupalgap_site_settings.variable.user_register) {
 				case 1: // Visitors
 				case "1":
-					alert("Registration complete! Please check your e-mail to verify your new account at " + site_name + ".");
+					alert("Registro completo! Por favor consulte su correo electrónico para finalizar la inscripción.");
 					break;
 				case 2: // Visitors, but administrator approval is required
 				case "2":
-					alert("Registration complete! An administrator from " + site_name  + " must now approve your new account.");
+					alert("Registro completo! Ahora el administrador del sitio debe aprovar su registro.");
 					break;
 				default:
-					alert("Registration complete!"); // TODO - this should be more informative, instruct user what's next.
+					alert("Registro completo!"); // TODO - this should be more informative, instruct user what's next.
 					break;
 			  }
 			  
@@ -102,7 +108,8 @@ $('#drupalgap_user_register_submit').live('click',function() {
 	  
 	  // Make the service call.
 	  //drupalgap_services_user_register.resource_call(options);
-	  drupalgap_services_drupalgap_user_register.resource_call(options);
+	  //drupalgap_services_drupalgap_user_register.resource_call(options);
+	  alert('Usuario Registrado!');
 	}
 	catch (error) {
 	  console.log("drupalgap_user_register_submit - " + error);
