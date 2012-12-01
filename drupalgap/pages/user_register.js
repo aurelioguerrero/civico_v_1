@@ -34,6 +34,7 @@ $('#drupalgap_user_register_submit').live('click',function() {
 	  // Grab mail and validate it.
 	  var mail = $('#drupalgap_user_register_mail').val();
 	  if (!mail) { alert('Por favor ingrese su dirección de correo electrónico.'); return false; }
+	  if (!validarEmail(mail)) { alert('Por favor ingrese una dirección de correo electrónico válida.'); return false; }
 	  
 	  // Grab passwords, compare and validate. 
 	  var pass = $('#drupalgap_user_register_pass').val();

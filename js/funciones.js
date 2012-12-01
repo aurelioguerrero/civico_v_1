@@ -124,3 +124,12 @@ function modulo_10_3(matricula)
 		return (mi_suma%10);
 	}
 }
+
+function validarEmail(valor) {
+  var patt1=/^(\w+)(\.?)(\w*)(\@{1})(\w+)(\.?)(\w*)(\.{1})(\w{2,3})$/;	
+  if (patt1.test(valor)){
+   return true;
+  } else {
+   return false;
+  }
+}
