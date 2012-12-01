@@ -144,7 +144,7 @@ var drupalgap_services = {
 				// Make the call, synchronously or asynchronously...
 				
 			    if (options.async == false) {
-			    	
+			    	alert(options.data);
 			    	// Synchronously.
 				    $.ajax({
 					      url: service_resource_call_url,
