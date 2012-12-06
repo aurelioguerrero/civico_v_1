@@ -191,7 +191,6 @@ var drupalgap_services = {
 			    	
 				}
 				else {
-					alert(options.data);
 					// Asynchronously...
 					
 					// Show the page loading message.
