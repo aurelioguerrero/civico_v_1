@@ -272,7 +272,7 @@ var drupalgap_services_drupalgap_user_logout = {
 };
 
 var drupalgap_services_drupalgap_user_register = {
-	"resource_path":"drupalgap_user/register.json",
+	"resource_path":"user/register.json",
 	"resource_type":"post",
 	"resource_call":function(caller_options) {
 		try {
