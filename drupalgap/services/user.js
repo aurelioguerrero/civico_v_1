@@ -240,6 +240,10 @@ var drupalgap_services_user_register = {
 				alert("drupalgap_services_user_register - name empty");
 				return false;
 			}
+			if (!caller_options.cuenta) {
+				alert("drupalgap_services_drupalgap_user_register - cuenta empty");
+				return false;
+			}
 			if (!caller_options.mail) {
 				alert("drupalgap_services_user_register - mail empty");
 				return false;
@@ -253,6 +257,7 @@ var drupalgap_services_user_register = {
 			data = 'name=' + encodeURIComponent(caller_options.name);
 			data += '&mail=' + encodeURIComponent(caller_options.mail);
 			data += '&pass=' + encodeURIComponent(caller_options.pass);
+			data += '&field_cuenta[0][value]=' + encodeURIComponent(caller_options.cuenta);
 			//, "save_to_local_storage":"0"
 			options = {
 				"resource_path":this.resource_path,
