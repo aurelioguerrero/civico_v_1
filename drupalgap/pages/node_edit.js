@@ -49,10 +49,10 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 						body = node.body.und[0].value;
 					}
 					$('#drupalgap_page_node_edit_body').val(body);
-					alert(urlImagenReporte);
-					var imagen = document.getElementById('smallImage');
-					imagen.src = urlImagenReporte;
-					//$('#smallImage').attr('src',urlImagenReporte);
+					//alert(urlImagenReporte);
+					var smallImage = document.getElementById('smallImage');
+					smallImage.style.display = 'block';
+					smallImage.src = urlImagenReporte;
 				},
 			}
 			
