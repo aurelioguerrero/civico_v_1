@@ -18,7 +18,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 				return false;
 			}
 			//$('#drupalgap_page_node_edit h1').html("Crear " + content_type.name);
-			$('#drupalgap_page_node_edit h1').html("Reporte Nuevo");
+			$('#drupalgap_page_node_edit h1').html("Nuevo Reporte");
 			$('#drupalgap_page_node_edit_delete').hide();
 		}
 		else { // existing node...
@@ -50,7 +50,9 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 					}
 					$('#drupalgap_page_node_edit_body').val(body);
 					alert(urlImagenReporte);
-					$('#smallImage').attr('src',urlImagenReporte);
+					var imagen = document.getElementById('smallImage');
+					imagen.src = urlImagenReporte;
+					//$('#smallImage').attr('src',urlImagenReporte);
 				},
 			}
 			
