@@ -149,6 +149,7 @@ function crearNodo(node)
 	var imgfid = node.fid;
 	navigator.geolocation.getCurrentPosition(registrarCoordenadas, errorCoordenadas);
 	var valgps = coordenadas;
+	alert(valgps);
 	
 	options = {
 	  			"node":{
