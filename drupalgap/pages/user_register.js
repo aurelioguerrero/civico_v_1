@@ -28,7 +28,7 @@ $('#drupalgap_user_register_submit').live('click',function() {
 	  
 	  var cuenta = $('#drupalgap_user_register_cuenta_siec').val();
 	  if (!cuenta) { alert('Por favor ingrese su cuenta CHEC.'); return false; }
-	  if (cuenta.toString().length != 9){ alert('El número de cuenta CHEC no es válido!'); return false;}
+	  if (cuenta.toString().length != 9 || isNaN(cuenta)){ alert('El número de cuenta CHEC no es válido!'); return false;}
 	  if (digitos_chequeo((cuenta.toString()).substring(0,6)) != (cuenta.toString()).substring(6,9)){ alert('El número de cuenta CHEC no es válido!'); return false;}	  
 	  
 	  // Grab mail and validate it.
