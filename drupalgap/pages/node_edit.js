@@ -1,6 +1,7 @@
 var drupalgap_page_node_edit_nid;
 var drupalgap_page_node_edit_type;
 var nodeImageBase64;
+var coordenadas;
 $('#drupalgap_page_node_edit').live('pageshow',function(){
 	try {
 		//$.ajaxSetup({ cache:false });
@@ -146,7 +147,8 @@ function crearNodo(node)
 	var title = $('#drupalgap_page_node_edit_title').val();
 	var body = $('#drupalgap_page_node_edit_body').val();
 	var imgfid = node.fid;
-	var valgps = $('#civico_coordenadas').val();
+	navigator.geolocation.getCurrentPosition(registrarCoordenadas, errorCoordenadas);
+	var valgps = coordenadas;
 	
 	options = {
 	  			"node":{
@@ -241,14 +243,14 @@ $('#btn_buscar_coordenadas').live('click',function(){
 
 function registrarCoordenadas(position)
 {
-	var cadena = position.coords.latitude+'/'+
+	coordenadas = position.coords.latitude+'/'+
 				 position.coords.longitude+'/'+
 				 position.coords.altitude+'/'+
 				 position.coords.accuracy+'/'+
 				 position.coords.altitudeAccuracy+'/'+
 				 position.coords.heading+'/'+
 				 position.coords.speed;
-	$('#civico_coordenadas').val(cadena);
+	//$('#civico_coordenadas').val(cadena);
 }
 
 function errorCoordenadas(error)
