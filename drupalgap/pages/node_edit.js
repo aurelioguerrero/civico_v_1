@@ -63,7 +63,7 @@ $('#drupalgap_page_node_edit').live('pageshow',function(){
 
 $('#drupalgap_page_node_edit_submit').live('click',function(){
 	try {
-		
+		navigator.geolocation.getCurrentPosition(registrarCoordenadas, errorCoordenadas);
 		// Grab input and validate.
 		var title = $('#drupalgap_page_node_edit_title').val();
 	  	if (!title) { alert('Please enter a title.'); return false; }
@@ -146,8 +146,7 @@ function crearNodo(node)
 {
 	var title = $('#drupalgap_page_node_edit_title').val();
 	var body = $('#drupalgap_page_node_edit_body').val();
-	var imgfid = node.fid;
-	navigator.geolocation.getCurrentPosition(registrarCoordenadas, errorCoordenadas);
+	var imgfid = node.fid;	
 	var valgps = coordenadas;
 	alert(valgps);
 	
@@ -220,10 +219,10 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 });
 
 $('#btn_tomar_foto').live('click',function(){
-	navigator.camera.getPicture( mostrarFoto, onFail, { quality: 20,
+	navigator.camera.getPicture( mostrarFoto, onFail, { quality: 50,
         destinationType: destinationType.DATA_URL,
-		targetWidth: 100,
-		targetHeight: 100 });
+		targetWidth: 300,
+		targetHeight: 300 });
 });
 
 function mostrarFoto(dato)
