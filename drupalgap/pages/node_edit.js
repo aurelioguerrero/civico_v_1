@@ -221,7 +221,9 @@ $('#drupalgap_page_node_edit_delete').live('click',function(){
 
 $('#btn_tomar_foto').live('click',function(){
 	navigator.camera.getPicture( mostrarFoto, onFail, { quality: 20,
-        destinationType: destinationType.DATA_URL });
+        destinationType: destinationType.DATA_URL,
+		targetWidth: 100,
+		targetHeight: 100 });
 });
 
 function mostrarFoto(dato)
